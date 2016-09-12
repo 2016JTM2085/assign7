@@ -1,5 +1,6 @@
 
 import string
+import random
 
 print "1. Add"
 print "2. Delete"
@@ -9,6 +10,7 @@ print "5. Exit "
 k=int(raw_input());
 
 d=dict();
+l=list();
 
 while True:
 	print "enter value of choice"
@@ -26,13 +28,8 @@ while True:
 		d[name].append(city)
 		d[name].append(dist)
 		d[name].append(state)
-		print "do you want to add(Y/N)"
-		j=raw_input();
-		if (j==Y):
-			continue
-		else:
-			break
-		
+		continue
+
 	if (k==2):
 		name=raw_input();
 		for name in d:
@@ -54,35 +51,41 @@ while True:
 		d[name].append(dist)
 		d[name].append(state)
 		continue
+
 	if (k==4):
 		name=raw_input();
-		print d[name]
+		l=d[name]
+		for var in l:
+			print var
 		continue
 		
-	if (k==5)
+	if (k==5):
 		break
 
-l=list();
+
 print "enter name for which to generate collection center no."
 name=raw_input();
-for name in d:
+for name in d.keys():
 	l=d[name]
 	for values in l:
-		a=str(bin(random.random()*10))[2:]
-		print values , " = " a
+		a=str(bin(int(random.random()*10)))[2:]
+		print values, 
+		print " = ",  
+		print a
 		a+=a
-		
+
+CC_NO=a		
 print "CC_NO" , a
 
 print "enter name for which to generate collection center no."
 name=raw_input();
 b=list();
-for name in d:
+for name in d.keys():
 	l=d[name]
 	for var in l:
 		var=var[0:3]
 		b.append(var.upper())		
-		
+	b.append(CC_NO)	
 	print "H_CC_NO = " , "_".join(b);
 
 
