@@ -1,0 +1,20 @@
+#!/usr/bin/python -tt
+#Code for Problem Statement 1
+
+from collections import Counter
+
+words =raw_input().split()
+counts = Counter(words)
+
+#print len(counts)
+
+for word in words:
+    derp = counts.pop(word, None)
+    if derp == None:
+        continue
+    else:
+        print word,derp
+
+ # comma stops print from ending with newline
+
+
